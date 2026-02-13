@@ -17,10 +17,14 @@
 
     <!-- AOS Library for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="apple-style">
+    <canvas id="particle-canvas"></canvas>
     <header class="navbar">
         <div class="container">
             <div class="logo-container" id="logo">
@@ -56,21 +60,22 @@
     <main>
         <section class="hero">
             <div class="hero-visualization">
-                <!-- Background image will be applied here via CSS -->
-                <div class="glow-sphere"></div>
+                <div class="glow-sphere main-glow"></div>
+                <div class="glow-sphere secondary-glow"></div>
                 <div class="grid-overlay"></div>
             </div>
             <div class="container">
                 <div class="hero-content">
-                    <div class="badge" data-aos="fade-down">Innovación Controlada</div>
-                    <h1 data-aos="fade-up" data-aos-delay="200">Impulsamos la <span class="highlight">Industria
-                            Inteligente</span> con Precisión y Seguridad</h1>
-                    <p data-aos="fade-up" data-aos-delay="400">Soluciones de próxima generación para la gestión de
-                        recursos, asistencia y seguridad de datos. Transformamos procesos críticos en ventajas
-                        competitivas.</p>
-                    <div class="hero-actions" data-aos="fade-up" data-aos-delay="600">
-                        <a href="#soluciones" class="btn btn-primary">Explorar Soluciones</a>
-                        <a href="#contacto" class="btn btn-outline">Ver Caso de Éxito</a>
+                    <div class="badge-wrapper" data-aos="fade-down">
+                        <span class="badge">Innovación Controlada</span>
+                    </div>
+                    <h1 class="reveal-text">Impulsamos la <span class="highlight">Industria Inteligente</span> con
+                        Precisión</h1>
+                    <p class="hero-p">Soluciones de próxima generación para la gestión de recursos, asistencia y
+                        seguridad de datos. Transformamos procesos críticos en ventajas competitivas.</p>
+                    <div class="hero-actions">
+                        <a href="#soluciones" class="btn btn-primary magnetic">Explorar Soluciones</a>
+                        <a href="#contacto" class="btn btn-outline magnetic">Ver Caso de Éxito</a>
                     </div>
                 </div>
             </div>
@@ -222,14 +227,152 @@
         </div>
     </footer>
 
+    <div class="ai-status-pill">
+        <div class="pulse-ring"></div>
+        <div class="status-dot"></div>
+        <span>Inflexium Core AI: Active</span>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
         AOS.init({
-            duration: 800,
+            duration: 1000,
             once: true,
-            easing: 'ease-out'
+            easing: 'ease-out-cubic'
         });
 
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero reveal animation
+        gsap.from(".reveal-text", {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        gsap.from(".hero-p", {
+            duration: 1.2,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // Magnetic buttons effect
+        const magneticBtns = document.querySelectorAll('.magnetic');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
+        // Particle System
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = Math.random() * 2 + 1;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let directionX = (Math.random() * 0.5) - 0.25;
+                let directionY = (Math.random() * 0.5) - 0.25;
+                let color = 'rgba(95, 52, 226, 0.3)';
+                particles.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x;
+                this.y = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.size = size;
+                this.color = color;
+                this.baseX = x;
+                this.baseY = y;
+                this.density = (Math.random() * 10) + 2;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                // Return to base position
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+                this.draw();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', initParticles);
+        initParticles();
+        animate();
+
+        // Industry switcher enhancements
         const industries = {
             rrhh: {
                 title: "Gestión Inteligente de RRHH",
@@ -256,17 +399,26 @@
             items.forEach(item => item.classList.remove('active'));
             event.currentTarget.classList.add('active');
 
-            display.style.opacity = '0';
-            setTimeout(() => {
-                display.innerHTML = `
-                    <div class="display-content" style="animation: slideIn 0.5s forwards">
-                        <h3>${data.title}</h3>
-                        <p>${data.text}</p>
-                        <a href="#" class="item-link">Ver más detalles →</a>
-                    </div>
-                `;
-                display.style.opacity = '1';
-            }, 300);
+            gsap.to(display, {
+                opacity: 0,
+                x: -20,
+                duration: 0.3,
+                onComplete: () => {
+                    display.innerHTML = `
+                        <div class="display-content">
+                            <h3>${data.title}</h3>
+                            <p>${data.text}</p>
+                            <a href="#" class="item-link">Ver más detalles →</a>
+                        </div>
+                    `;
+                    gsap.to(display, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                }
+            });
         }
     </script>
 </body>
