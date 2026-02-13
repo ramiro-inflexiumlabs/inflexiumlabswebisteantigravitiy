@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflexium Labs | Innovación & Seguridad Garantizada</title>
+    <meta name="description"
+        content="Soluciones innovadoras para optimizar tiempo y asistencia, asegurando eficiencia, control y almacenamiento seguro de información.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BuZAwg3Y.css">
+</head>
+
+<body class="apple-style">
+    <canvas id="particle-canvas"></canvas>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-container" id="logo">
+                <svg width="45" height="45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M30 20H70C75.5228 20 80 24.4772 80 30V70C80 75.5228 75.5228 80 70 80H30C24.4772 80 20 75.5228 20 70V30C20 24.4772 24.4772 20 30 20Z"
+                        fill="#5F34E2" fill-opacity="0.1" />
+                    <path d="M40 35L60 35L65 45L50 65L35 45L40 35Z" fill="url(#grad1)" />
+                    <path d="M50 30L70 50L50 70L30 50L50 30Z" stroke="#5F34E2" stroke-width="2"
+                        stroke-linejoin="round" />
+                    <defs>
+                        <linearGradient id="grad1" x1="35" y1="35" x2="65" y2="65" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#5F34E2" />
+                            <stop offset="1" stop-color="#0E2599" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="brand-name">Inflexium<span>Labs</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#soluciones">Soluciones</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#industrias">Industrias</a>
+                <a href="#contacto" class="btn btn-secondary">Agenda una Demo</a>
+            </nav>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-visualization">
+                <div class="glow-sphere main-glow"></div>
+                <div class="glow-sphere secondary-glow"></div>
+                <div class="grid-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="badge-wrapper" data-aos="fade-down">
+                        <span class="badge">Innovación Controlada</span>
+                    </div>
+                    <h1 class="reveal-text">Impulsamos la <span class="highlight">Industria Inteligente</span> con
+                        Precisión</h1>
+                    <p class="hero-p">Soluciones de próxima generación para la gestión de recursos, asistencia y
+                        seguridad de datos. Transformamos procesos críticos en ventajas competitivas.</p>
+                    <div class="hero-actions">
+                        <a href="#soluciones" class="btn btn-primary magnetic">Explorar Soluciones</a>
+                        <a href="#contacto" class="btn btn-outline magnetic">Ver Caso de Éxito</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="soluciones" class="solutions">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">Nuestra Propuesta de <span class="highlight">Valor</span></h2>
+                    <p>Eficiencia y almacenamiento seguro diseñado para empresas sólidas.</p>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3>Seguridad en Capas</h3>
+                        <p>Protección de datos y acceso controlado con redundancia tecnológica.</p>
+                        <ul class="card-list">
+                            <li>Encriptación de grado militar</li>
+                            <li>Control de acceso biométrico</li>
+                            <li>Auditoría en tiempo real</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                        </div>
+                        <h3>Optimización de Tiempo</h3>
+                        <p>Gestión inteligente de asistencia para maximizar la productividad operativa.</p>
+                        <ul class="card-list">
+                            <li>Algoritmos de IA predictiva</li>
+                            <li>Reportes automatizados</li>
+                            <li>Integración ERP nativa</li>
+                        </ul>
+                    </div>
+                    <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                            </svg>
+                        </div>
+                        <h3>Gestión de Activos</h3>
+                        <p>Control total sobre recursos físicos y digitales con visibilidad 360°.</p>
+                        <ul class="card-list">
+                            <li>Trazabilidad completa</li>
+                            <li>Mantenimiento preventivo</li>
+                            <li>Ahorro de costos eficiente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="industrias" class="industries">
+            <div class="container">
+                <div class="industry-container" data-aos="zoom-in">
+                    <div class="industry-info">
+                        <h2>Especialización por <span class="highlight">Sector</span></h2>
+                        <p>Entendemos los desafíos específicos de cada industria para ofrecer soluciones que realmente
+                            funcionen.</p>
+                        <div class="industry-selector">
+                            <div class="industry-item active" onclick="showIndustry('rrhh')">
+                                <span>01</span>
+                                <h4>Recursos Humanos</h4>
+                            </div>
+                            <div class="industry-item" onclick="showIndustry('cons')">
+                                <span>02</span>
+                                <h4>Constructoras</h4>
+                            </div>
+                            <div class="industry-item" onclick="showIndustry('salud')">
+                                <span>03</span>
+                                <h4>Salud & Bienestar</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="industry-display" id="industryDisplay">
+                        <div class="display-content">
+                            <h3>Gestión Inteligente de RRHH</h3>
+                            <p>Optimización de nómina y control de asistencia con biometría avanzada. Reduzca errores
+                                humanos en un 40% mediante nuestra automatización certificada.</p>
+                            <a href="#" class="item-link">Ver más detalles →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-inner" data-aos="fade-up">
+                    <h2>¿Listo para optimizar su empresa?</h2>
+                    <p>Hable con uno de nuestros consultores técnicos hoy mismo.</p>
+                    <a href="#contacto" class="btn btn-secondary btn-large">Contactar a un experto</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo-container">
+                        <svg width="35" height="35" viewBox="0 0 100 100" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M50 30L70 50L50 70L30 50L50 30Z" stroke="#5F34E2" stroke-width="4" />
+                            <rect x="40" y="40" width="20" height="20" fill="#5F34E2" />
+                        </svg>
+                        <span class="brand-name">Inflexium<span>Labs</span></span>
+                    </div>
+                    <p>Expertos en procesos de negocio con una visión tecnológica vanguardista.</p>
+                </div>
+                <div class="footer-nav">
+                    <div class="footer-col">
+                        <h4>Soluciones</h4>
+                        <ul>
+                            <li><a href="#">Security Hub</a></li>
+                            <li><a href="#">Time Tracker</a></li>
+                            <li><a href="#">Asset Manager</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#">Sobre nosotros</a></li>
+                            <li><a href="#">Blog técnico</a></li>
+                            <li><a href="#">Carreras</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Inflexium Labs. "Optimización inteligente con seguridad garantizada."</p>
+                <div class="socials">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="ai-status-pill">
+        <div class="pulse-ring"></div>
+        <div class="status-dot"></div>
+        <span>Inflexium Core AI: Active</span>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero reveal animation
+        gsap.from(".reveal-text", {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        gsap.from(".hero-p", {
+            duration: 1.2,
+            y: 50,
+            opacity: 0,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        // Magnetic buttons effect
+        const magneticBtns = document.querySelectorAll('.magnetic');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.5,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+        });
+
+        // Particle System
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            const numberOfParticles = (canvas.width * canvas.height) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = Math.random() * 2 + 1;
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                let directionX = (Math.random() * 0.5) - 0.25;
+                let directionY = (Math.random() * 0.5) - 0.25;
+                let color = 'rgba(95, 52, 226, 0.3)';
+                particles.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x;
+                this.y = y;
+                this.dx = dx;
+                this.dy = dy;
+                this.size = size;
+                this.color = color;
+                this.baseX = x;
+                this.baseY = y;
+                this.density = (Math.random() * 10) + 2;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                // Return to base position
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = forceDirectionX * force * this.density;
+                let directionY = forceDirectionY * force * this.density;
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+                this.draw();
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', initParticles);
+        initParticles();
+        animate();
+
+        // Industry switcher enhancements
+        const industries = {
+            rrhh: {
+                title: "Gestión Inteligente de RRHH",
+                text: "Optimización de nómina y control de asistencia con biometría avanzada. Reduzca errores humanos en un 40% mediante nuestra automatización certificada.",
+                link: "Detalles RRHH"
+            },
+            cons: {
+                title: "Control de Obra y Costos",
+                text: "Software ERP especializado para constructoras. Presupuestación precisa, gestión de subcontratistas y control de inventarios en tiempo real.",
+                link: "Detalles Constructoras"
+            },
+            salud: {
+                title: "Ecosistemas de Salud",
+                text: "Almacenamiento seguro de datos médicos bajo estándares internacionales. Gestión de turnos y optimización de recursos hospitalarios.",
+                link: "Detalles Salud"
+            }
+        };
+
+        function showIndustry(key) {
+            const data = industries[key];
+            const display = document.getElementById('industryDisplay');
+            const items = document.querySelectorAll('.industry-item');
+
+            items.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            gsap.to(display, {
+                opacity: 0,
+                x: -20,
+                duration: 0.3,
+                onComplete: () => {
+                    display.innerHTML = `
+                        <div class="display-content">
+                            <h3>${data.title}</h3>
+                            <p>${data.text}</p>
+                            <a href="#" class="item-link">Ver más detalles →</a>
+                        </div>
+                    `;
+                    gsap.to(display, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
